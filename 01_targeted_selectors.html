@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Targeted Selectors</title>
+
+  <style>
+    /* Direct Child */
+    div > p {
+      background: #dddddd;
+    }
+
+    /* Directly After */
+    div + p {
+      background: #333;
+      color: white;
+    }
+
+    /* By Attribute */
+    a[target] {
+      background: greenyellow;
+      color: blue;
+    }
+
+    /* Specific attribute values */
+    input[type='text'],
+    input[type='email'] {
+      width: 80%;
+      margin-bottom: 6px;
+    }
+
+  </style>
+
+</head>
+<body>
+  <div>
+    <p>I am "Direct Child" of div</p>
+    <ul>
+      <li>Item1</li>
+      <li><p>I am not affected because I am "Direct Child" of li, not div</p></li>
+      <li>Item3</li>
+      <li><p>I am also not affected because I am "Direct Child" of li, not div</p></li>
+    </ul>
+
+    <p>I am also "Direct Child" of div</p>
+  </div>
+
+  <p>This is for the div sibling, "Directly After".</p>
+
+  <a href="#">Link 1</a>
+  <a href="#" target="_self">Link 2</a>
+  <a href="http://google.com" target="_blank">Google</a>
+
+<br><br>
+
+  <form>
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <input type="submit" placeholder="Submit">
+    </form>
+</body>
+</html>
