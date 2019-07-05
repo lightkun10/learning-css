@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Transform</title>
+  <style>
+    body {
+        background: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .box {
+        background: white;
+        width: 300px;
+        height: 300px;
+        /* transform: rotate(25deg); */
+        /* transform: skew(25deg); */
+        /* transform: scale(2); */
+        transition: all 1s ease-in-out;
+        z-index: -1;
+        position: relative;
+      }
+
+      .box:hover {
+        /* transform: rotate(180deg);
+        transform: skew(25deg);
+        transform: scale(2); */
+        transform: translateY(-70px);
+        transform: translateX(70px);
+        transform: translate(200px, 200px);
+        transform: translate3d(200px, 200px 200px);
+      }
+
+      #hiddenText {
+        z-index: 1;
+        position: absolute;
+        left: 30px;
+        top: 20px;
+      }
+  </style>
+</head>
+<body>
+  <div class="box">&copy;PanduPnda
+      <div id="hiddenText">STAN IZ*ONE!</div>
+  </div>
+</body>
+</html>
