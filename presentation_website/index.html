@@ -59,5 +59,28 @@
       </a>
     </div>
   </section>
+
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+  <script>
+    // SMOOTH SCROLLING
+    $('.btn').on('click', function(event) {
+      // hash is an id
+      // basically, search for an id
+      if(this.hash !== '') {
+        event.preventDefault();
+        const hash = this.hash;
+        $('html, body').animate(
+         {
+           scrollTop: $(hash).offset().top
+         },
+         1000 // scrolling speed 
+        );
+      }
+    });
+  </script>
 </body>
 </html>
