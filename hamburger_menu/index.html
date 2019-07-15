@@ -8,10 +8,11 @@
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/musicIZONE.css">
   <title>Hamburger Menu Overlay</title>
 </head>
 <body>
-  <div class="menu-wrap">
+  <div class="menu-wrap page">
     <input type="checkbox" class="toggler">
     <div class="hamburger"> <div></div> </div>
     <div class="menu">
@@ -28,13 +29,140 @@
     </div>
   </div>
 
-  <header id="showcase">
+  <header id="showcase" class="page">
     <div class="container showcase-container">
       <h1>Welcome</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repellendus fuga modi, dolorum similique vel maxime provident veniam delectus ut!</p>
-      <a href="" class="btn">Read More</a>
+      <a href="#page-2" class="btn">Read More</a>
     </div>
   </header>
+  
+  <section id="page-2" class="page">
+    <!-- Container of all keys -->
+  <div class="keys">
+    <!-- This is for specific key -->
+    <div data-key="81" class="key">
+      <kbd>Q</kbd>
+      <span class="sound">Wonyoung</span>
+    </div>
+
+    <div data-key="87" class="key">
+        <kbd>W</kbd>
+        <span class="sound">Sakura</span>
+    </div>
+
+    <div data-key="69" class="key">
+        <kbd>E</kbd>
+        <span class="sound">Yuri</span>
+    </div>
+
+    <div data-key="82" class="key">
+        <kbd>R</kbd>
+        <span class="sound">Yena</span>
+    </div>
+
+    <div data-key="84" class="key">
+        <kbd>T</kbd>
+        <span class="sound">Yujin</span>
+    </div>
+
+    <div data-key="89" class="key">
+        <kbd>Y</kbd>
+        <span class="sound">Nako</span>
+    </div>
+
+    <div data-key="85" class="key">
+        <kbd>U</kbd>
+        <span class="sound">Eunbi</span>
+    </div>
+
+    <div data-key="73" class="key">
+        <kbd>I</kbd>
+        <span class="sound">Hyewon</span>
+    </div>
+
+    <div data-key="79" class="key">
+        <kbd>O</kbd>
+        <span class="sound">Hitomi</span>
+    </div>
+
+    <div data-key="80" class="key">
+        <kbd>P</kbd>
+        <span class="sound">Chaewon</span>
+    </div>
+
+    <div data-key="219" class="key">
+        <kbd>[</kbd>
+        <span class="sound">Minju</span>
+    </div>
+
+    <div data-key="221" class="key">
+        <kbd>]</kbd>
+        <span class="sound">Chaeyeon</span>
+    </div>
+  </div>
+  </section>
+
+<!-- AUDIO DATA -->
+<audio data-key="81" src="sounds/wonyoung_morningcall.mp3"></audio>
+<audio data-key="87" src="sounds/sakura_morningcall.mp3"></audio>
+<audio data-key="69" src="sounds/yuri_morningcall.mp3"></audio>
+<audio data-key="82" src="sounds/yena_morningcall.mp3"></audio>
+<audio data-key="84" src="sounds/yujin_morningcall.mp3"></audio>
+<audio data-key="89" src="sounds/nako_morningcall.mp3"></audio>
+<audio data-key="85" src="sounds/eunbi_morningcall.mp3"></audio>
+<audio data-key="73" src="sounds/hyewon_morningCall.mp3"></audio>
+<audio data-key="79" src="sounds/hitomi_morningcall.mp3"></audio>
+<audio data-key="80" src="sounds/chaewon_morningcall.mp3"></audio>
+<audio data-key="219" src="sounds/minju_morningcall.mp3"></audio>
+<audio data-key="221" src="sounds/chaeyeon_morningcall.mp3"></audio>
+
+<!-- JQUERY -->
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+<!-- EVENTS -->
+<script>
+
+// SMOOTH SCROLLING
+$('.btn').on('click', function(event) {
+      // hash is an id
+      // basically, search for an id
+      if(this.hash !== '') {
+        event.preventDefault();
+        const hash = this.hash;
+        $('html, body').animate(
+         {
+           scrollTop: $(hash).offset().top
+         },
+         1000 // scrolling speed 
+        );
+      }
+    });
+
+window.addEventListener('keydown', playSound);
+
+function playSound(e) {
+  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+  const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+  if(!audio) return; //check. stop function from running all together
+  audio.currentTime = 0; //rewind to the start
+  audio.play();
+  key.classList.add('playing'); //add effect on each key pressed
+}
+
+function removeTransition(e) {
+if(e.propertyName !== 'transform') return; //skip it if it's not transform
+// console.log(this); //use console.log(this) to check
+this.classList.remove('playing');
+}
+
+const keys = document.querySelectorAll('.key');
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+</script>
 
 </body>
 </html>
