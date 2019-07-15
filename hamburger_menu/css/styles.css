@@ -1,9 +1,10 @@
 :root {
-  --primary-color: rgba(13, 110, 139, 0.75);
+  --primary-color: rgba(13, 110, 139, 0.64);
   /* --primary-color-iz: #b6e3bc; */
-  --primary-color-iz: rgba(182, 227, 188, 0.75);
+  --primary-color-iz: rgba(182, 227, 188, 0.90);
   --secondary-color: rgba(229, 148, 0, 0.9);
   --overlay-color: rgba(24, 39, 51, 0.85);
+  --overlay-color-iz: rgba(144, 157, 146, 0.80);
   --menu-speed: 0.75s;
 }
 
@@ -15,8 +16,12 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.4;
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: 'Playfair Display', sans-serif;
+  /* line-height: 1.4; */
+  line-height: 1.85;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .container {
@@ -29,7 +34,8 @@ body {
 
 #showcase {
   background: var(--primary-color);
-  color: #fff;
+  /* color: #fff; */
+  color: #f8f7f2;
   height: 100vh;
   position: relative;
 }
@@ -55,7 +61,7 @@ body {
 }
 
 #showcase h1 {
-  font-size: 4rem;
+  font-size: 4.5rem;
   margin-top: 9rem;
 }
 
