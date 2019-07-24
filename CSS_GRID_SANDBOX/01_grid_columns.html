@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Grid Columns</title>
+
+  <style>
+    .grid {
+      display: grid;
+      /* auto => stretch went all away across */
+      /* grid-template-columns: 200px auto 200px; */
+                          /* no. of times, width */
+      /* grid-template-columns: repeat(3, auto); */
+      grid-template-columns: 1fr 2fr 2fr;
+      grid-gap: 1.5rem;
+    }
+
+    .item {
+      padding: 3rem;
+      border: #ccc 1px solid;
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      background: #f4f4f4;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-gap: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <!--  .item{item $}*3  -->
+    <div class="item">item 1</div>
+    <div class="item">item 2</div>
+    <div class="item">item 3</div>
+    <div class="item">item 4</div>
+    <div class="item">item 5</div>
+    <div class="item">item 6</div>
+  </div>
+
+  <main>
+    <section>
+      <h3>Welcome to my site</h3>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam consectetur natus, totam consequatur cupiditate est, corrupti quaerat deserunt optio beatae et eius modi, nemo amet quo possimus ab! Et, explicabo.</p>
+    </section>
+    <aside>
+      <h3>Learning Grid</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, iure.</p>
+    </aside>
+  </main>
+</body>
+</html>
