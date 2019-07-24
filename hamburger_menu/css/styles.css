@@ -1,7 +1,8 @@
 :root {
   --primary-color: rgba(13, 110, 139, 0.64);
   /* --primary-color-iz: #b6e3bc; */
-  --primary-color-iz: rgba(182, 227, 188, 0.90);
+  --primary-color-iz: rgba(182, 227, 188, 0.60);
+  --primary-color-iz-bold: rgba(182, 227, 188, 1.00);
   --secondary-color: rgba(229, 148, 0, 0.9);
   --overlay-color: rgba(24, 39, 51, 0.85);
   --overlay-color-iz: rgba(144, 157, 146, 0.80);
@@ -37,7 +38,7 @@ body {
 }
 
 #showcase {
-  /* background: var(--primary-color); */
+  background: var(--primary-color);
   /* color: #fff; */
   color: #f8f7f2;
   height: 100vh;
@@ -65,8 +66,9 @@ body {
 }
 
 #showcase h1 {
-  font-size: 5rem;
-  margin-top: -40rem;
+  font-size: 7rem;
+  margin-top: 23rem;
+  z-index: 1;
 }
 
 #showcase p {
@@ -90,5 +92,17 @@ body {
 }
 
 .main-text {
-  color: red;
+  color: var(--primary-color-iz-bold);
+}
+
+@media(max-width: 600px) {
+  #showcase {
+    width: 100%;
+  }
+
+  #showcase h1 {
+    font-size: 5rem;
+    margin-top: -2rem;
+    z-index: 1;
+  }
 }
